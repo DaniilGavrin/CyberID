@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+const nextConfig = {
+    allowedDevOrigins: ['172.19.0.1'], // разрешаем этот адрес
+    reactStrictMode: true,
+}
+
+module.exports = nextConfig
 
 export default nextConfig;
