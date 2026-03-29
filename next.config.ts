@@ -1,10 +1,17 @@
 import type { NextConfig } from "next";
 
-const nextConfig = {
-    allowedDevOrigins: ['172.19.0.1', '192.168.31.51'], // разрешаем этот адрес
-    reactStrictMode: true,
-}
+const nextConfig: NextConfig = {
+  reactStrictMode: true,
 
-module.exports = nextConfig
+  output: 'export',           // Создаёт папку out/ со статикой
+  images: {
+    unoptimized: true,        // Отключаем оптимизацию картинок (нет сервера)
+  },
+  trailingSlash: true,        // Добавляет / в конце URL
+  basePath: '',
+  assetPrefix: '',
+
+  allowedDevOrigins: ['172.19.0.1', '192.168.31.51'],
+};
 
 export default nextConfig;

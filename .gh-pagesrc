@@ -1,0 +1,6 @@
+{
+  "src": "out/**/*",
+  "dest": ".",
+  "branch": "gh-pages",
+  "dotfiles": true
+}
