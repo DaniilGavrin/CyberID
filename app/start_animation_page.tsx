@@ -28,19 +28,19 @@ export default function StartAnimationPage({ onComplete }: StartAnimationPagePro
     useEffect(() => {
         const interval = setInterval(() => {
             setRotation((prev) => (prev + 90) % 360)
-        }, 150)
+        }, 75)
         return () => clearInterval(interval)
     }, [])
 
     // Последовательность фаз
     useEffect(() => {
-        const CORNERS_DURATION = 2000
-        const TITLE_DURATION = 1500
-        const MESSAGE_START_DELAY = 500
-        const MESSAGE_INTERVAL = 2000
-        const MESSAGE_LOADING_TIME = 1000
-        const TRANSITION_BUFFER = 500
-        const TRANSITION_DURATION = 800 // Уменьшил для резкости
+        const CORNERS_DURATION = 1000
+        const TITLE_DURATION = 750
+        const MESSAGE_START_DELAY = 250
+        const MESSAGE_INTERVAL = 1000
+        const MESSAGE_LOADING_TIME = 500
+        const TRANSITION_BUFFER = 250
+        const TRANSITION_DURATION = 400
 
         const cornersTimer = setTimeout(() => setPhase('title'), CORNERS_DURATION)
         const titleTimer = setTimeout(() => setPhase('messages'), CORNERS_DURATION + TITLE_DURATION)
@@ -75,8 +75,6 @@ export default function StartAnimationPage({ onComplete }: StartAnimationPagePro
     }, [])
 
     return (
-        // 🔥 FIX: Убрал transition-opacity с main, чтобы не было белых вспышек.
-        // Переход управляется через отдельный оверлей.
         <main className="min-h-screen bg-black flex flex-col items-center justify-center relative overflow-hidden">
 
             {/* Фоновая сетка */}
@@ -91,7 +89,6 @@ export default function StartAnimationPage({ onComplete }: StartAnimationPagePro
             {/* Основной контент */}
             <div className="relative z-10 text-center flex flex-col items-center justify-center">
 
-                {/* 🔥 FIX: Заголовок - эффект "включения" (свечение + масштаб) */}
                 <h1
                     className={`font-black tracking-wider uppercase transition-all duration-1000 ${
                         phase === 'corners'
@@ -171,12 +168,6 @@ export default function StartAnimationPage({ onComplete }: StartAnimationPagePro
             <div className={`absolute top-1/2 right-1/4 w-32 h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent transition-opacity duration-1000 delay-300 ${
                 phase === 'corners' ? 'opacity-0' : 'opacity-100 animate-pulse'
             }`} />
-
-            {/* 🔥 FIX: Оверлей для плавного затемнения вместо белого фона
-            //<div className={`absolute inset-0 bg-black pointer-events-none transition-opacity duration-800 z-50 ${
-                phase === 'transition' ? 'opacity-100' : 'opacity-0'
-            }`} />
-            */}
         </main>
     )
 }

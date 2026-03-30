@@ -80,7 +80,7 @@ export default function DetailsScreenMain({ isOpen, onClose }: DetailsScreenProp
                     {/* Контент */}
                     <div
                         className="relative p-6 font-mono text-sm text-cyan-200/80 space-y-4 max-h-[60vh] overflow-y-auto custom-scrollbar">
-                        {/* 👇 ВСТАВЬ СЮДА СВОЙ ТЕКСТ 👇 */}
+                        {/* ВСТАВЬ СЮДА СВОЙ ТЕКСТ */}
                         <p>
                             // CyberID Project — ID Provider нового поколения
                         </p>
@@ -100,7 +100,7 @@ export default function DetailsScreenMain({ isOpen, onClose }: DetailsScreenProp
                         </p>
                         <p>
                             &gt; Версия протокола: <span
-                            className="text-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.8)]">v0.0.4</span>
+                            className="text-purple-400 drop-shadow-[0_0_8px_rgba(168,85,247,0.8)]">v0.0.5</span>
                         </p>
                         <p>
                             &gt; Шифрование: <span className="text-cyan-300">AES-256</span>
@@ -119,7 +119,7 @@ export default function DetailsScreenMain({ isOpen, onClose }: DetailsScreenProp
                             </p>
                         </div>
 
-                        {/* 👆 КОНЕЦ ТЕКСТА 👆 */}
+                        {/* КОНЕЦ ТЕКСТА */}
                     </div>
 
                     {/* Футер */}
